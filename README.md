@@ -65,3 +65,15 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por servicios de mensajería, llegando a un límite de su eficiencia y control.
 
 ...
+
+## Tecnologías
+
+...
+
+## Tiempo de entrega
+
+...
+
+## Presupuesto
+
+...
