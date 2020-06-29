@@ -2,7 +2,7 @@
 
 ## Antecedentes
 
-Recientemente, aplicaciones móviles de mensajería como WhatsApp, han habilitado un canal de comunicación entre negocios y consumidores que presenta un catálogo de nuevas oportunidades para desarrollar herramientas que agilicen esta nueva dinámica de las operaciones de compra-venta.
+Recientemente, aplicaciones móviles de mensajería como WhatsApp, han abilitado un canal de comunicación entre negocios y consumidores que presenta un catálogo de nuevas oportunidades para desarrollar herramientas que agilicen esta nueva dinámica de las operaciones de compra-venta.
 
 ## Descripción del problema
 
@@ -14,7 +14,7 @@ Por ejemplo:
 
 María opera un negocio de hamburguesas en una buena zona de la capital. Actualmente envía su catálogo de hamburguesas en formato PDF o JPG a los clientes que lo solicitan. María tiene en la galería de su celular el catálogo y a veces recuerda enviar el link al catálogo que WhatsApp Business ofrece dentro de la aplicación.
 
-Cuando el cliente ha elegido lo que desea ordenar, María envía una respuesta predeterminada parecida a esto:
+Cuando el cliente ha elegido lo que desea ordenar, María envía una respuesta pre-determinada parecida a esto:
 
 ```
 Gracias por comprar nuestras hamburguesas.
@@ -36,7 +36,7 @@ Una vez que el cliente responde:
 - 1 vegana, 2 papas fritas, 2 refrescos
 - 123456 Corporación Sublime, SA
 - 5a Av. 19-35, Zona 0
-- Efectivo, contra entrega
+- Efectivo, contraentrega
 ```
 
 María inicia el siguiente protocolo:
@@ -46,7 +46,7 @@ María inicia el siguiente protocolo:
 
 ```
 Hemos recibido tu orden.
-El total es de Q259.00, a contra entrega
+El total es de Q259.00, a contra-entrega
 
 Tu pedido llegará a tu puerta alrededor de las 12:30
 Que disfrutes tu hamburguesa!
@@ -62,92 +62,52 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 ## Descripción de la Solución
 
-Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por canales de mensajería, llegando a un límite de su eficiencia y control.
+Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por servicios de mensajería, llegando a un límite de su eficiencia y control.
 
-### Glosario de términos
+...
+Para poder evitar los errores humanos debido a la sobre carga de información, la solución puede encontrarse en la automatización de ciertos procesos.
 
-#### Usuario Final
+Escuche de un video de Mark Zuckerberg que se implementarían nuevas funciones para la venta, análisis, datos cruzados, y trato especial de clientes estrella entre sus plataformas Facebook, Instagram, y Whatsapp. Pero revisando la documentación aun no esta disponible.
 
-Persona que administra el catálogo de productos, crea órdenes de compra y se comunica con sus clientes.
+### Parte 1 – Tomar la Orden
+Así que iniciando con el primer contacto del cliente, debe de haber un sistema de chat automatizado. Que puede ayudar de las siguientes dos opciones:
 
-#### Emisor
+#### Opción 1 – Chat bot robusto
+El cliente obtiene una respuesta inmediata. Que puede ser para mostrar el catalogo/menu mientras que un humano interactuá con ellos. Y con un entrenamiento mas sofisticado el chat bot, puede tener reaciones distintas antes los clientes frecuentes, y los nuevos. Ademas de poder pedir su orden, y responder con su total.
 
-Inicia una conversación con el Usuario Final a través de Whatsapp for Business
+#### Opción 2 – Utilizar plataforma
+Al evitar el desarrollo de un chat bot robusto, tener un sistema que responde con un saludo, e instrucciones para seguir un link; en donde el cliente se registre, tome su propia orden, vea su total y realice su check out. 
 
-### Propuesta
+### Parte 2 – Cocina y Envíos
+Al recibir la orden del bot o de la plataforma, distribuirla tanto a la cocina para prepararla, y a el mensajero para prepararse para el viaje. 
 
-#### Creación y actualización de órdenes de compra
+#### Opción 1 – Chat bot robusto
+Podría ser por POST en whatsapp con un chatbot que reconoce comandos como: Orden Lista, Envió en camino, Entregado. 
+**Orden Lista** enviaría un mensaje al mensajero para que tome el pedido y lo entregue a la dirección. Ademas de preparar la siguiente orden cronológico para le cocinero.
+**Orden en camino** comparte la locación en tiempo real con el cliente del mensajero. (Aquí evitaría también enviarla a cocina, para no sobre cargarlos de información. Al menos que haya una forma de filtrarla)
+**Entregado** que activa el envió de la factura en linea del cliente, ademas de permitir la asignación del siguiente orden al mensajero.
 
-María, de ahora en adelante: el _usuario_; tendrá acceso a una aplicación móvil que le permita generar y actualizar órdenes de compra de manera inmediata, sólo con el dedo pulgar.
+#### Opción 2 – Utilizar plataforma
+Utilizar una plataforma personalizada para cada uno (cocina, y mensajero). Que ayuda a la cocina observar desde un dashboard las ordenes entrantes, y el estado de la enviadas. 
+La plataforma del mensajero tendría la orden, la dirección, y estaría obteniendo la locación en tiempo real del mensajero, para informar al cliente en todo momento.
 
-##### Órdenes de compra con suscripción y selección de días de entrega
-
-El usuario y el cliente podrán seleccionar opciones de día y hora de entrega asignados por el usuario.
-
-##### Notificaciones de órdenes de compra
-
-El sistema notificará al usuario de nuevas órdenes de compra o de actualización del estatus de dichas órdenes.
-
-#### Envío de mensajes via whatsapp con formato de recibo / nota de venta
-
-La mayor ventaja de esta plataforma es que al crear una orden de compra, el usuario podrá enviar mensajes directamente por whatsapp con formato de recibo, con el precio unitario de cada artículo, la cantidad, el subtotal, los impuestos, costos de envío, descuentos y gran total.
-
-#### Gestión de inventario
-
-El usuario tendrá control de su inventario y el sistema descontará automáticamente las unidades de inventario consumidas.
-
-#### Catálogo y compra en línea
-
-Los clientes del usuario podrán ver los productos en un link https con el dominio de la empresa del usuario.
-
-Aunque este sistema, permite que el usuario genere las órdenes de compra sin que el cliente deba salir de whatsapp, es opcional para el cliente comprar a través del catálogo y el proceso de checkout.
-
-#### Gestión automática de nuevos clientes y clientes frecuentes
-
-Una característica innovadora de este sistema es que el usuario tendrá acceso a una lista de contactos ligados a su historial de compra. Lo que permitará al usuario conocer de antemano sus direcciones de entrega y sus datos personales.
 
 ## Tecnologías
 
-El sistema anterior requiere de la siguiente arquitectura:
+...
+Para realizar mensajería automatizada exiten dos formas:
+- Utilizar Twilio > Se puede exportar a cualquier lenguaje. (Necesita un servidor)
+- Utilizar WhatsApp Business API > Webhook > Que utilizar Express (Necesita un servidor)
 
-### API / Backend
+HTML requests
 
-- Wordpress con Woocommerce plugin con JSON API Activado: https://woocommerce.github.io/woocommerce-rest-api-docs/
-- Twilio whatsapp api (sandbox), requiere aprobación del negocio: https://www.twilio.com/docs/whatsapp/api#sending-notifications
-- Express server sobre Node JS v12.16.0 o superior
-
-### Mobile App / Cliente frontend 1
-
-- React Native / Expo con expo-push-notifications: https://docs.expo.io/guides/push-notifications/
-
-### Web App / Cliente frontend 2
-
-- Wordpress con Woocommerce plugin
-
-### Base de datos
-
-- MySQL
-
-### Infraestructura
-
-- LAMP Stack en AWS ECS containers
 
 ## Tiempo de entrega
 
-3 meses a partir de la fecha del anticipo (50%), más 1 mes de correciones y mantenimiento.
-Los cambios posteriores a este periodo incurren en costos adicionales.
-
-## Equipo de desarollo
-
-- 1 equipo de API / Backend (Woocommerce)
-- 1 equipo de API / Backend (twilio whatsapp)
-- 1 equipo de App Móvil (react native / expo)
-- 1 equipo de App Web (wordpress / woocommerce)
+...
+No lo se, nunca he hecho un proyecto asi
 
 ## Presupuesto
 
-USD 32,000
-
-### Costos de infraestructura
-
-USD 500 / mes
+...
+Twilio API for WhatsApp Starting at $0.0042 to send a WhatsApp Template message and $0.005 for WhatsApp Session messages. 
