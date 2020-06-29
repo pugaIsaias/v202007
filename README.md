@@ -2,7 +2,7 @@
 
 ## Antecedentes
 
-Recientemente, aplicaciones móviles de mensajería como WhatsApp, han abilitado un canal de comunicación entre negocios y consumidores que presenta un catálogo de nuevas oportunidades para desarrollar herramientas que agilicen esta nueva dinámica de las operaciones de compra-venta.
+Recientemente, aplicaciones móviles de mensajería como WhatsApp, han habilitado un canal de comunicación entre negocios y consumidores que presenta un catálogo de nuevas oportunidades para desarrollar herramientas que agilicen esta nueva dinámica de las operaciones de compra-venta.
 
 ## Descripción del problema
 
@@ -14,7 +14,7 @@ Por ejemplo:
 
 María opera un negocio de hamburguesas en una buena zona de la capital. Actualmente envía su catálogo de hamburguesas en formato PDF o JPG a los clientes que lo solicitan. María tiene en la galería de su celular el catálogo y a veces recuerda enviar el link al catálogo que WhatsApp Business ofrece dentro de la aplicación.
 
-Cuando el cliente ha elegido lo que desea ordenar, María envía una respuesta pre-determinada parecida a esto:
+Cuando el cliente ha elegido lo que desea ordenar, María envía una respuesta predeterminada parecida a esto:
 
 ```
 Gracias por comprar nuestras hamburguesas.
@@ -36,7 +36,7 @@ Una vez que el cliente responde:
 - 1 vegana, 2 papas fritas, 2 refrescos
 - 123456 Corporación Sublime, SA
 - 5a Av. 19-35, Zona 0
-- Efectivo, contraentrega
+- Efectivo, contra entrega
 ```
 
 María inicia el siguiente protocolo:
@@ -46,7 +46,7 @@ María inicia el siguiente protocolo:
 
 ```
 Hemos recibido tu orden.
-El total es de Q259.00, a contra-entrega
+El total es de Q259.00, a contra entrega
 
 Tu pedido llegará a tu puerta alrededor de las 12:30
 Que disfrutes tu hamburguesa!
