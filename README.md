@@ -137,3 +137,7 @@ Los cambios posteriores a este periodo incurren en costos adicionales.
 ## Presupuesto
 
 USD 32,000
+
+### Costos de infraestructura
+
+USD 500 / mes
