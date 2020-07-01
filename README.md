@@ -64,6 +64,16 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por canales de mensajería, llegando a un límite de su eficiencia y control.
 
+### Glosario de términos
+
+#### Usuario Final
+
+Persona que administra el catálogo de productos, crea órdenes de compra y se comunica con sus clientes.
+
+#### Emisor
+
+Inicia una conversación con el Usuario Final a través de Whatsapp for Business
+
 ### Propuesta
 
 #### Creación y actualización de órdenes de compra
