@@ -1,4 +1,6 @@
+import { InjectionKey } from "./InjectionKey";
+
 export interface IDependencies {
-  provide(injectionKey: InjectionKey);
+  provide<T>(injectionKey: InjectionKey<T>);
   destroy();
 }
