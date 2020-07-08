@@ -1,4 +1,4 @@
-import Dependencies from "@corecodeio/libraries/di";
+import { Dependencies } from "@corecodeio/libraries/di";
 import { Request, Response } from "express";
 import { MessageSourceControllerInjectionKey } from "./feature/message-source/MessageSourceControllerInjectionKey";
 import server from "./server";

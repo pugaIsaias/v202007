@@ -3,7 +3,8 @@
     "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "@corecodeio/libraries": "*"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.50",
