@@ -2,7 +2,7 @@ import { IDependencies } from "./IDependencies";
 import { InjectionKey } from "./InjectionKey";
 import { InjectionKeyScope } from "./InjectionKeyScope";
 
-export class Dependencies implements IDependencies {
+class Dependencies implements IDependencies {
   protected cache = new Map<string, any>();
 
   provide<T>(injectionKey: InjectionKey<T>) {
@@ -27,3 +27,6 @@ export class Dependencies implements IDependencies {
     this.cache.clear();
   }
 }
+
+export { Dependencies };
+export default Dependencies;
