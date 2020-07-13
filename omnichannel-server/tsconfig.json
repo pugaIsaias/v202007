@@ -10,6 +10,9 @@
     "outDir": "dist",
     "lib": ["esnext", "dom"],
     "allowJs": false,
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "plugins": [
+      { "transform": "typescript-is/lib/transform-inline/transformer" }
+    ]
   }
 }
