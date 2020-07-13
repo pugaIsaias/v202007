@@ -1,5 +1,5 @@
-import { InjectionKeyScope } from "@corecodeio/libraries/di/InjectionKeyScope";
 import { IDependencies } from "./IDependencies";
+import { InjectionKeyScope } from "./InjectionKeyScope";
 
 export interface InjectionKey<T> {
   name: string;
