@@ -7,11 +7,11 @@ export class MessageSourceController {
     this.messageParser = messageParser;
   }
 
-  initializeMessageParser(rawData: any) {
+  setRawData = (rawData: any) => {
     this.messageParser.setRawData(rawData);
-  }
+  };
 
-  getMessage() {
+  getParsedMessage = () => {
     return this.messageParser.parse();
-  }
+  };
 }
