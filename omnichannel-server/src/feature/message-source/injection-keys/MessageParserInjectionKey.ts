@@ -8,8 +8,8 @@ export const MessageParserInjectionKey: InjectionKey<MessageParser> = {
   scope: InjectionKeyScope.singleton,
   closure: (dependencies) => {
     const messageBirdPayload: MessageBirdPayload = null;
-    const standarMessageProviderInterface:MessagePayload = null;
-    const messageParser = new MessageParser(null,[messageBirdPayload],standarMessageProviderInterface);
+    let standarMessageProviderPayload: MessagePayload;
+    const messageParser = new MessageParser([messageBirdPayload]);
     return messageParser;
   },
 };
