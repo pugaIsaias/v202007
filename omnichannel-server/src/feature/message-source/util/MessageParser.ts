@@ -1,38 +1,30 @@
+import { is } from "typescript-is";
+import { MessagePayload } from "../interfaces/messages/MessagePayload";
+
 export class MessageParser {
   private rawData: any;
   private messageServiceProviders: Array<any> = [];
-  private standardMessageInterface;
 
-  constructor(
-    rawData?: any,
-    messageServiceProviders?: Array<any>,
-    standarMessageInterface?: any
-  ) {
-    this.rawData = rawData;
-    this.messageServiceProviders = messageServiceProviders;
-    this.standardMessageInterface = standarMessageInterface;
-  }
-
-  public set setRawData(rawData: any) {
-    this.rawData = rawData;
-  }
-
-  public set setMessageServiceProviders(messageServiceProviders: Array<any>) {
+  constructor(messageServiceProviders?: Array<any>) {
     this.messageServiceProviders = messageServiceProviders;
   }
 
-  public set setStandardMessageInterface(standardMessageInterface: any) {
-    this.standardMessageInterface = standardMessageInterface;
-  }
+  setRawData = (rawData: any) => {
+    this.rawData = rawData;
+  };
 
-  public get getStandardMessageInterface(): any {
-    return this.standardMessageInterface;
-  }
+  getRawData = () => {
+    return this.rawData;
+  };
 
-  private assertMessageServiceProvider(rawData: any): Boolean {
+  setMessageServiceProviders = (messageServiceProviders: Array<any>) => {
+    this.messageServiceProviders = messageServiceProviders;
+  };
+
+  private assertMessageServiceProvider = (rawData: any): Boolean => {
     if (this.messageServiceProviders !== null) {
       for (const provider of this.messageServiceProviders) {
-        if (typeof rawData === provider) {
+        if (is<typeof provider>(rawData)) {
           return true;
         }
       }
@@ -40,19 +32,13 @@ export class MessageParser {
       throw new Error("Parser needs at least one Message Service Provider");
     }
     return false;
-  }
+  };
 
-  parse() {
+  parse = () => {
     if (this.rawData !== undefined || null) {
       if (this.assertMessageServiceProvider(this.rawData)) {
-        if (this.getStandardMessageInterface() !== undefined || null) {
-          const standardMessageInterface = this.getStandardMessageInterface();
-          const parsedData: typeof standardMessageInterface = this.rawData;
-
-          return parsedData;
-        } else {
-          throw new Error("The parser needs a standard message interface");
-        }
+        const parsedData: MessagePayload = this.rawData;
+        return parsedData;
       } else {
         throw new Error("Raw data does not have a defined provider");
       }
@@ -61,5 +47,5 @@ export class MessageParser {
         "The parser needs to initialize the raw data in order to work"
       );
     }
-  }
+  };
 }
