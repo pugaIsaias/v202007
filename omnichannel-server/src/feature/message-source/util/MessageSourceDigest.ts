@@ -21,6 +21,6 @@ export class MessageSourceDigest {
   }
 
   private isMessageBirdPayload = (payload: IMessageBirdPayload): boolean => {
-    return payload.contactPhoneNumber !== undefined;
+    return Boolean(payload?.contactPhoneNumber);
   };
 }
