@@ -16,6 +16,11 @@ export class MessageSourceController {
     const payload: IMessagePayload = this.messageSourceDigest.parseRequestBody(
       req.body
     );
+
+    payload.currentTime;
+    payload.message;
+    payload.from;
+
     // TDD - Test Driven Development
     // Pruebas unitarias Unit tests - jest, mocha, chai
     // Prueba integrales Integration Tests - jest, mocha, chai
