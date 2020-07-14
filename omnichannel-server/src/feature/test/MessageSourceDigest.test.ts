@@ -19,11 +19,13 @@ describe("MessageSourceDigest", () => {
       currentTime,
       payload: message,
     };
+
     const payload: IMessagePayload = {
       message,
       currentTime: new Date(currentTime),
       from,
     };
+    
     expect(messageSourceDigest.parseRequestBody(messageBirdPayload)).toEqual(
       payload
     );
