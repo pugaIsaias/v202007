@@ -11,7 +11,7 @@ export class MessageSourceDigest {
   private parseMessageBirdPayload(body: IMessageBirdPayload): IMessagePayload {
     const from = body.contactPhoneNumber;
     const message = body.payload;
-    const currentTime = body.currentTime;
+    const currentTime = new Date(body.currentTime);
 
     return {
       from,
