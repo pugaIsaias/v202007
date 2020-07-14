@@ -8,21 +8,24 @@ const messageSourceDigest = dependencies.provide(
   MessageSourceDigestInjectionKey
 );
 
-describe("Testing MessageSourceDigest parseRequestBody method", () => {
-  test("Should return the body of the request parsed", () => {
-    const date = "2020-07-14T02:28:51.11316996Z";
-    const body: IMessageBirdPayload = {
-      contactPhoneNumber: "+123456789",
-      currentTime: date,
-      payload: "Hello World Tests",
-    };
+describe("MessageSourceDigest", () => {
+  test("Should return the parsed payload of the request body", () => {
+    const currentTime = "2020-07-14T02:28:51.11316996Z";
+    const message = "Hello World Tests";
+    const from = "+123456789";
 
-    const payloadExpected: IMessagePayload = {
-      message: "Hello World Tests",
-      currentTime: new Date(date),
-      from: "+123456789",
+    const messageBirdPayload: IMessageBirdPayload = {
+      contactPhoneNumber: from,
+      currentTime,
+      payload: message,
     };
-
-    expect(messageSourceDigest.parseRequestBody(body)).toEqual(payloadExpected);
+    const payload: IMessagePayload = {
+      message,
+      currentTime: new Date(currentTime),
+      from,
+    };
+    expect(messageSourceDigest.parseRequestBody(messageBirdPayload)).toEqual(
+      payload
+    );
   });
 });
