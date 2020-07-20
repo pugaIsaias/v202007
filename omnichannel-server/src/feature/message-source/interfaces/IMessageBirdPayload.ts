@@ -1,5 +1,5 @@
 export interface IMessageBirdPayload {
   contactPhoneNumber: string;
-  currentTime: Date;
+  currentTime: string;
   payload: string;
 }
