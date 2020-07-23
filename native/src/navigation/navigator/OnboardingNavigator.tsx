@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SendPhoneVerificationCode from "../feature/onboarding/screen/SendPhoneNumberVerificationCode";
+import SendPhoneVerificationCode from "../../feature/onboarding/screen/SendPhoneNumberVerificationCode";
 
 export const OnboardingNavigator: React.FC<{}> = () => {
   const { Navigator, Screen } = createStackNavigator();
