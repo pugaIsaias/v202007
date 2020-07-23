@@ -1,8 +1,13 @@
 import React from "react";
-import NavigationRouter from "./src/feature/navigation/NavigationRouter";
+import { NavigationContainer } from "@react-navigation/native";
+import OnboardingNavigator from "./src/feature/navigation/navigator/OnboardingNavigator";
 
 export const App: React.FC<{}> = () => {
-  return <NavigationRouter />;
+  return (
+    <NavigationContainer>
+      <OnboardingNavigator />
+    </NavigationContainer>
+  );
 };
 
 export default App;
