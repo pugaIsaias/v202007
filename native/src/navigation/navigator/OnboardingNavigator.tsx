@@ -1,21 +1,21 @@
-import React from "react";
+import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SendPhoneVerificationCode from "../../feature/onboarding/screen/SendPhoneNumberVerificationCode";
+import { OnboardingStackParamList } from "../types/OnboardingStackParamList";
+import {
+  SendPhoneNumberVerificationCode,
+  VerifyPhoneNumberCode,
+} from "../../feature/onboarding/screen";
 
-export const OnboardingNavigator: React.FC<{}> = () => {
-  const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator<OnboardingStackParamList>();
 
-  return (
-    <Navigator initialRouteName="SendVerificationCode">
-      <Screen
-        name="SendVerificationCode"
-        component={SendPhoneVerificationCode}
-        options={{
-          title: "Send Verification Code",
-        }}
-      />
-    </Navigator>
-  );
-};
+const OnboardingNavigator = () => (
+  <Navigator>
+    <Screen
+      name="SendPhoneNumberVerificationCode"
+      component={SendPhoneNumberVerificationCode}
+    />
+    <Screen name="VerifyPhoneNumberCode" component={VerifyPhoneNumberCode} />
+  </Navigator>
+);
 
 export default OnboardingNavigator;
