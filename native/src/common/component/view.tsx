@@ -11,7 +11,9 @@ import {
   compose,
   display,
   flexbox,
+  FlexProps,
   height,
+  JustifyContentProps,
   space,
   SpaceProps,
   typography,
@@ -31,6 +33,8 @@ export const ViewLayout = compose(
 
 type ViewProps =
   | TouchableOpacityProps
+  | FlexProps
+  | JustifyContentProps
   | ColorStyleProps
   | BackgroundColorProps
   | SpaceProps
