@@ -1,13 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
 import BaseButton from "./BaseButton";
 
-export const MainActionButton: React.FC<{}> = ({ children }) => {
-  return (
-    <BaseButton color="white" bg="black" mx={20} my={20} height={50}>
-      <Text>{children}</Text>
-    </BaseButton>
-  );
-};
+export const MainActionButton: React.FC<{}> = ({ children, ...props }) => (
+  <BaseButton {...props} children={children} bg="#888" mx={20} my={20} height={50} />
+);
 
 export default MainActionButton;
