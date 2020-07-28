@@ -9,6 +9,7 @@ export const MainActionButton: React.FC<{}> = ({ children, ...props }) => (
     mx={20}
     my={20}
     height={50}
+    width={200}
     borderColor="black"
     borderRadius={15}
     alignItems="center"
