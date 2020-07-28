@@ -1,10 +1,14 @@
 import React from "react";
-import MainActionButton from "../../../common/component/Button/MainActionButton";
+import {
+  PrimaryButton,
+  SecondaryButton,
+} from "../../../common/component/button";
 
 export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   return (
     <>
-      <MainActionButton children="Send Code"/>
+      <PrimaryButton onPress={() => {}}>Send Code</PrimaryButton>
+      <SecondaryButton>Send Code</SecondaryButton>
     </>
   );
 };
