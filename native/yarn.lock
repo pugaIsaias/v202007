@@ -975,6 +975,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@corecodeio/libraries@^1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@corecodeio/libraries/1.0.0/d1ab60a3d46e634e354995936a94a8d8f25240ee1ca724ea70b3780cbd8a2c97#78ea26cbfa7e7a43354ad41c62a04b74bb42c796"
+  integrity sha512-vseGkA/SuIZtfDwMw0GWUAhq/SCXCYVomdjS0zYjWTpqdxlkYLWplj12Ag/DcALOMy6G+3TcY3KaZgCiw84yNQ==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
