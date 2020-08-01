@@ -5,7 +5,10 @@
     "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@corecodeio/libraries": "1.0.0",
+    "apollo-server-express": "^2.16.1",
+    "express": "^4.17.1",
+    "package.json": "^2.0.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
