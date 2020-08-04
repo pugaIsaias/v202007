@@ -10,6 +10,7 @@
     "outDir": "dist",
     "lib": ["esnext", "dom"],
     "allowJs": false,
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "skipLibCheck": true
   }
 }

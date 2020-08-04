@@ -1,5 +1,15 @@
+import { ISMSVerification } from "../../../util/twilio/interface/ISMSVerification";
+
 export class OnboardingController {
-  async sendPhoneNumberVerificationCode(input): Promise<boolean> {
-    return false;
+  private twilioSMSVerification: ISMSVerification;
+
+  constructor(twilioSMSVerification: ISMSVerification) {
+    this.twilioSMSVerification = twilioSMSVerification;
+  }
+
+  async sendPhoneNumberVerificationCode({ phoneNumber }): Promise<boolean> {
+    // TODO check if phone number already exists (apply to resolver middleware)
+
+    return this.twilioSMSVerification.send(phoneNumber);
   }
 }
