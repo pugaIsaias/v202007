@@ -5,11 +5,14 @@
     "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
   },
   "dependencies": {
+    "@corecodeio/libraries": "^1.0.1",
+    "apollo-server-express": "^2.16.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
+    "supertest": "^4.0.2",
     "ts-jest": "^26.1.2",
     "ts-node-dev": "^1.0.0-pre.50",
     "typescript": "^3.9.6"
