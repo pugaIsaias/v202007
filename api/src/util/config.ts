@@ -17,11 +17,11 @@ const config = convict({
       arg: "twilio-account-sid",
     },
 
-    smsServiceID: {
+    verifyServiceID: {
       doc: "Twilio SMS Service ID",
       format: "*",
       default: null,
-      env: "TWILIO_SMS_SID",
+      env: "TWILIO_VERIFY_SID",
       arg: "twilio-sms-sid",
     },
 
