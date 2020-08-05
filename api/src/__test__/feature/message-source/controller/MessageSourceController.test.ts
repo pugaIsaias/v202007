@@ -1,6 +1,12 @@
+import { Dependencies } from "@corecodeio/libraries/di";
 import request from "supertest";
-import server from "../../server";
-import { IMessageBirdPayload } from "../message-source/interfaces/IMessageBirdPayload";
+import { IMessageBirdPayload } from "../../../../feature/message-source/interfaces/IMessageBirdPayload";
+import { createExpressServer, createRoutes } from "../../../../server";
+
+const dependencies = new Dependencies();
+
+const server = createExpressServer();
+createRoutes(server, dependencies);
 
 describe("MessageSourceController", () => {
   test("Should return a response with code 200", async (done) => {

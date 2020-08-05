@@ -1,5 +1,18 @@
-import app from "./server";
+import { Dependencies } from "@corecodeio/libraries/di";
+import {
+  createApolloServer,
+  createExpressServer,
+  createRoutes,
+} from "./server";
 
-app.listen("8001", () => {
+const dependencies = new Dependencies();
+
+const apolloServer = createApolloServer(dependencies);
+const expressServer = createExpressServer();
+createRoutes(expressServer, dependencies);
+
+apolloServer.applyMiddleware({ app: expressServer });
+
+expressServer.listen("8001", () => {
   console.log("listening");
 });

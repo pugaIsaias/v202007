@@ -1,7 +1,7 @@
 import { Dependencies } from "@corecodeio/libraries/di";
-import { MessageSourceDigestInjectionKey } from "../message-source/InjectionKeys";
-import { IMessageBirdPayload } from "../message-source/interfaces/IMessageBirdPayload";
-import { IMessagePayload } from "../message-source/interfaces/IMessagePayload";
+import { MessageSourceDigestInjectionKey } from "../../../../feature/message-source/InjectionKeys";
+import { IMessageBirdPayload } from "../../../../feature/message-source/interfaces/IMessageBirdPayload";
+import { IMessagePayload } from "../../../../feature/message-source/interfaces/IMessagePayload";
 
 const dependencies = new Dependencies();
 const messageSourceDigest = dependencies.provide(
@@ -25,7 +25,7 @@ describe("MessageSourceDigest", () => {
       currentTime: new Date(currentTime),
       from,
     };
-    
+
     expect(messageSourceDigest.parseRequestBody(messageBirdPayload)).toEqual(
       payload
     );
