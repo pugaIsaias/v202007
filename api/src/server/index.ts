@@ -1,6 +1,7 @@
 import { Dependencies } from "@corecodeio/libraries/di";
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
+import { IContext } from "./interface/IContext";
 import { resolvers } from "./resolvers";
 import { default as createRoutes } from "./routes";
 import { schema as typeDefs } from "./schema";
@@ -12,7 +13,7 @@ export const server = new ApolloServer({
   resolvers,
   context: {
     dependencies,
-  },
+  } as IContext,
 });
 
 const app = express();
