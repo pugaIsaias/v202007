@@ -1,12 +1,14 @@
+import { QueryResolvers } from "@corecodeio/libraries/api";
 import { IContext } from "../../../server/interface/IContext";
 import { OnboardingControllerInjectionKey } from "../InjectionKeys";
 
-export const sendPhoneNumberVerificationCode = (
+export const sendPhoneNumberVerificationCode: QueryResolvers<
+  IContext
+>["sendPhoneNumberVerificationCode"] = (
   parent,
-  input,
-  { dependencies }: IContext,
-  info
-): Promise<boolean> => {
+  { input },
+  { dependencies }
+) => {
   try {
     const onboardingController = dependencies.provide(
       OnboardingControllerInjectionKey
