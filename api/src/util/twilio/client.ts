@@ -1,6 +1,6 @@
 import twilio from "twilio";
+import config from "../config";
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const autToken = process.env.TWILIO_AUTH_TOKEN;
+const { aid, authToken } = config.get("twilio");
 
-export const client = twilio(accountSid, autToken);
+export const client = twilio(aid, authToken);

@@ -1,17 +1,23 @@
 {
-  "name": "@corecodeio/omnichannel-server",
+  "name": "@corecodeio/api",
   "version": "1.0.0",
   "scripts": {
-    "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
+    "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src",
+    "api:schema:generate": "graphql-codegen"
   },
   "dependencies": {
-    "@corecodeio/libraries": "^1.0.1",
+    "@corecodeio/libraries": "1.0.3",
     "apollo-server-express": "^2.16.1",
+    "convict": "^6.0.0",
     "express": "^4.17.1",
     "twilio": "^3.48.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.17.7",
+    "@graphql-codegen/typescript": "^1.17.7",
+    "@graphql-codegen/typescript-resolvers": "^1.17.7",
     "@types/jest": "^26.0.4",
+    "apollo-server-testing": "^2.16.1",
     "jest": "^26.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.2",
