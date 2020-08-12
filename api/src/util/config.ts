@@ -8,6 +8,17 @@ const config = convict({
     env: "NODE_ENV",
   },
 
+  flags: {
+    verifiedPhoneNumbers: {
+      doc: "test phone numbers",
+      format: "*",
+      default: Array(15)
+        .fill(null)
+        .map((_, i) => `+5020000000${i}`),
+      env: "VERIFIED_PHONE_NUMBERS",
+    },
+  },
+
   twilio: {
     aid: {
       doc: "Twilio Account SID",

@@ -1,12 +1,24 @@
 import { QuerySendPhoneNumberVerificationCodeArgs } from "@corecodeio/libraries/api";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { TextInput } from "react-native";
+import { Text, TextInput } from "react-native";
 import { PrimaryButton } from "../../../common/component/button";
 import { View } from "../../../common/component/view";
 import { DependencyContext } from "../../../common/context/DependencyContext";
+import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
+import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
-export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
+type Props = {
+  navigation: StackNavigationProp<
+    OnboardingStackParamList,
+    OnboardingStackScreenName.SendPhoneNumberVerificationCode
+  >;
+};
+
+export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
+  navigation,
+}) => {
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
@@ -21,8 +33,16 @@ export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   const {
     executeSendPhoneNumberVerificationCode,
     result,
-    queryResult,
+    queryResult: { error: sendPhoneNumberVerificationCodeError },
   } = onboarding.useSendPhoneNumberVerificationCode();
+
+  React.useEffect(() => {
+    if (!Boolean(result) || !result.valueOf()) {
+      return;
+    }
+
+    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
+  }, [result]);
 
   const onSetPhoneNumber = (phoneNumber: string) => {
     setInput({ input: { phoneNumber } });
@@ -37,15 +57,18 @@ export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   };
 
   return (
-    <View container flex={1} justifyContent="center" bg="blue">
+    <View container flex={1} justifyContent="center">
       <TextInput
         value={args.input.phoneNumber}
         autoFocus
         onChangeText={onSetPhoneNumber}
         placeholder={"+502 1234 56 78"}
       />
+      {sendPhoneNumberVerificationCodeError && (
+        <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
+      )}
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
-        Send Codes
+        Continuar
       </PrimaryButton>
     </View>
   );
