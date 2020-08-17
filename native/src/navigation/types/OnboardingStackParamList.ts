@@ -1,4 +1,6 @@
+import { OnboardingStackScreenName } from "../model/OnboardingStackScreenName";
+
 export type OnboardingStackParamList = {
-  SendPhoneNumberVerificationCode: undefined;
-  VerifyPhoneNumberCode: undefined;
+  [OnboardingStackScreenName.SendPhoneNumberVerificationCode]: undefined;
+  [OnboardingStackScreenName.VerifyPhoneNumberCode]: undefined;
 };
