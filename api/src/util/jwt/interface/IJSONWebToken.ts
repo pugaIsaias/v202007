@@ -1,4 +1,7 @@
 export interface IJSONWebToken {
-  sign: <Payload = object>(payload: Payload, options?: any) => string;
-  verify: (token: string) => boolean;
+  sign: <Payload = string | Buffer | object>(
+    payload: Payload,
+    options?: { expiresIn?: string }
+  ) => string;
+  verify: <Payload = string | object>(token: string) => object | string;
 }
