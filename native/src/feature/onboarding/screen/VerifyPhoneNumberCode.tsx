@@ -57,13 +57,13 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({ navigation }) => {
   return (
     <View container flex={1} justifyContent="center">
       <TextInput
-        value={args.input.phoneNumber}
+        value={args.input.code}
         autoFocus
         onChangeText={onSetVerificationCode}
         placeholder={"CheckCode"}
       />
       {VerifyPhoneNumberCodeError && (
-        <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
+        <Text>Error PIN equivocado. Intenta de nuevo.</Text>
       )}
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
         Continuar
