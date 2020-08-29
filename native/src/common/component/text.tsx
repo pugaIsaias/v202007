@@ -15,7 +15,7 @@ import {
 	space,
 	SpaceProps,
 	typography,
-	width,
+	width
 } from 'styled-system';
 
 export const TextLayout = compose(color, space, display, width, height, border, flexbox, typography);
