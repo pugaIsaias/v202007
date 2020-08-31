@@ -1,4 +1,5 @@
 import { QueryVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
+import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Text, TextInput } from "react-native";
@@ -14,15 +15,22 @@ type Props = {
     OnboardingStackParamList,
     OnboardingStackScreenName.VerifyPhoneNumberCode
   >;
+  route: RouteProp<
+    OnboardingStackParamList,
+    OnboardingStackScreenName.VerifyPhoneNumberCode
+  >;
 };
 
-export const VerifyPhoneNumberCode: React.FC<Props> = ({ navigation }) => {
+export const VerifyPhoneNumberCode: React.FC<Props> = ({
+  route,
+  navigation,
+}) => {
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingCodeInjectionKey);
 
   const [args, setInput] = React.useState<QueryVerifyPhoneNumberCodeArgs>({
     input: {
-      phoneNumber: "",
+      phoneNumber: route.params.phoneNumber,
       code: "",
     },
   });
@@ -38,7 +46,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({ navigation }) => {
       return;
     }
 
-    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
+    // navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
   }, [result]);
 
   const onSetVerificationCode = (code: string) => {

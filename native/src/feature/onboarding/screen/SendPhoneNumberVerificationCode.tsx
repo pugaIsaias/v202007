@@ -41,7 +41,9 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
       return;
     }
 
-    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
+    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode, {
+      phoneNumber: args.input.phoneNumber,
+    });
   }, [result]);
 
   const onSetPhoneNumber = (phoneNumber: string) => {

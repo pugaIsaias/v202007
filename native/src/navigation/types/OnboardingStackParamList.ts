@@ -1,6 +1,10 @@
+import { VerifyPhoneNumberCodeInput } from "@corecodeio/libraries/api";
 import { OnboardingStackScreenName } from "../model/OnboardingStackScreenName";
 
 export type OnboardingStackParamList = {
   [OnboardingStackScreenName.SendPhoneNumberVerificationCode]: undefined;
-  [OnboardingStackScreenName.VerifyPhoneNumberCode]: undefined;
+  [OnboardingStackScreenName.VerifyPhoneNumberCode]: Pick<
+    VerifyPhoneNumberCodeInput,
+    "phoneNumber"
+  >;
 };
