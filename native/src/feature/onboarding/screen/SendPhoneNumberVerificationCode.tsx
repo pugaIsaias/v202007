@@ -37,7 +37,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
   } = onboarding.useSendPhoneNumberVerificationCode();
 
   React.useEffect(() => {
-    if (!Boolean(result) || !result.valueOf()) {
+    if (!Boolean(result)) {
       return;
     }
 

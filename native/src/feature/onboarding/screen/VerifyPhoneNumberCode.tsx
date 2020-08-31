@@ -2,13 +2,13 @@ import { QueryVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Text, TextInput } from "react-native";
+import { Alert, Text, TextInput } from "react-native";
 import { PrimaryButton } from "../../../common/component/button";
 import { View } from "../../../common/component/view";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
-import { OnboardingCodeInjectionKey } from "../InjectionKey";
+import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
   navigation: StackNavigationProp<
@@ -26,7 +26,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   navigation,
 }) => {
   const dependencies = React.useContext(DependencyContext);
-  const onboarding = dependencies.provide(OnboardingCodeInjectionKey);
+  const onboarding = dependencies.provide(OnboardingInjectionKey);
 
   const [args, setInput] = React.useState<QueryVerifyPhoneNumberCodeArgs>({
     input: {
@@ -38,16 +38,30 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const {
     executeVerifyPhoneNumberCode,
     result,
-    queryResult: { error: VerifyPhoneNumberCodeError },
+    error,
   } = onboarding.useVerifyPhoneNumberCode();
 
   React.useEffect(() => {
-    if (!Boolean(result) || !result.valueOf()) {
+    if (!Boolean(result)) {
       return;
     }
 
     // navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
   }, [result]);
+
+  React.useEffect(() => {
+    if (!Boolean(error)) {
+      return;
+    }
+
+    handleError();
+  }, [error]);
+
+  const handleError = () => {
+    Alert.alert("Oops!", error?.message, [
+      { text: "Entendido", onPress: () => null },
+    ]);
+  };
 
   const onSetVerificationCode = (code: string) => {
     let phoneNumber = args.input.phoneNumber;
@@ -55,11 +69,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
-    try {
-      await executeVerifyPhoneNumberCode(args);
-    } catch (error) {
-      // TODO handle error
-    }
+    await executeVerifyPhoneNumberCode(args);
   };
 
   return (
@@ -70,9 +80,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
         onChangeText={onSetVerificationCode}
         placeholder={"CheckCode"}
       />
-      {VerifyPhoneNumberCodeError && (
-        <Text>Error PIN equivocado. Intenta de nuevo.</Text>
-      )}
+      {error && <Text>Error PIN equivocado. Intenta de nuevo.</Text>}
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
         Continuar
       </PrimaryButton>
