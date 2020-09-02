@@ -1,28 +1,20 @@
 import React, { useCallback } from "react";
 import {
   Alert,
-  Dimensions,
   Keyboard,
   KeyboardAvoidingView,
   Linking,
   Platform,
   TouchableWithoutFeedback,
 } from "react-native";
-import { PrimaryInput } from "../../../common/component/input";
 import {
   FooterText,
   PrimaryText,
   SecundaryText,
 } from "../../../common/component/text";
-import {
-  FooterView,
-  SecundaryView,
-  View,
-} from "../../../common/component/view";
+import { FooterView, View } from "../../../common/component/view";
+import CodeInput from "../codeInput";
 
-const width_window = Dimensions.get("window").width;
-const box_count = 10;
-const width_one = width_window / box_count;
 const loginURL = "https://google.com";
 
 const OpenURL = ({ url, children }) => {
@@ -42,22 +34,6 @@ const OpenURL = ({ url, children }) => {
 };
 
 export const VerifyPhoneNumberView = () => {
-  const TextInputListArr = [];
-
-  for (var i = 0; i <= 5; i++) {
-    const j = i + 1;
-    TextInputListArr.push(
-      <PrimaryInput
-        key={i}
-        keyboardType={"numeric"}
-        maxLength={1}
-        margin={1}
-        width={width_one}
-        height={width_one}
-      ></PrimaryInput>
-    );
-  }
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -75,16 +51,7 @@ export const VerifyPhoneNumberView = () => {
             Introduce el código que hemos enviado a tu{"\n"}
             número +502 01020304
           </SecundaryText>
-          <SecundaryView
-            container
-            flexWrap="wrap"
-            alignItems="center"
-            flexDirection="row"
-            justifyContent="center"
-          >
-            {TextInputListArr}
-            <OpenURL url={loginURL}>Reenviar mensaje de confirmación</OpenURL>
-          </SecundaryView>
+          <CodeInput />
           <FooterView container>
             <FooterText>
               ¿Ya tienes cuenta? <OpenURL url={loginURL}>Incia Sesion</OpenURL>

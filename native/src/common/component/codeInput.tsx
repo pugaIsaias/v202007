@@ -10,7 +10,7 @@ import styles from "./styles";
 
 const CELL_COUNT = 6;
 
-const codeInput = () => {
+const CodeInput = () => {
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -45,3 +45,5 @@ const codeInput = () => {
     />
   );
 };
+
+export default CodeInput;
