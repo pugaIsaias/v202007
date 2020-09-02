@@ -64,8 +64,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   };
 
   const onSetVerificationCode = (code: string) => {
-    let phoneNumber = args.input.phoneNumber;
-    setInput({ input: { phoneNumber, code } });
+    setInput({ input: { phoneNumber: args.input.phoneNumber, code } });
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
