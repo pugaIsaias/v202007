@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback } from "react";
 import {
   Alert,
   Dimensions,
@@ -43,8 +43,6 @@ const OpenURL = ({ url, children }) => {
 
 export const VerifyPhoneNumberView = () => {
   const TextInputListArr = [];
-  const ref_input2 = useRef();
-  const ref_input3 = useRef();
 
   for (var i = 0; i <= 5; i++) {
     const j = i + 1;
