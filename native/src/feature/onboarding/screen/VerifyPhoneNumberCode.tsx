@@ -2,9 +2,8 @@ import { QueryVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Alert, Text, TextInput } from "react-native";
-import { PrimaryButton } from "../../../common/component/button";
-import { View } from "../../../common/component/view";
+import { Alert } from "react-native";
+import { VerifyPhoneNumberView } from "../../../common/component/screen/VerifyPhoneNumberView";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
@@ -30,7 +29,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
 
   const [args, setInput] = React.useState<QueryVerifyPhoneNumberCodeArgs>({
     input: {
-      phoneNumber: route.params.phoneNumber,
+      phoneNumber: "", //route.params.phoneNumber,
       code: "",
     },
   });
@@ -72,7 +71,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   };
 
   return (
-    <View container flex={1} justifyContent="center">
+    /*<View container flex={1} justifyContent="center">
       <TextInput
         value={args.input.code}
         autoFocus
@@ -83,7 +82,8 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
         Continuar
       </PrimaryButton>
-    </View>
+    </View>*/
+    <VerifyPhoneNumberView />
   );
 };
 
