@@ -2,8 +2,8 @@ import { QuerySendPhoneNumberVerificationCodeArgs } from "@corecodeio/libraries/
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Text, TextInput } from "react-native";
-import { PrimaryButton } from "../../../common/component/button";
-import { View } from "../../../common/component/view";
+import { View } from "../../../common/component";
+import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";

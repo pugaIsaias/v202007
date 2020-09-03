@@ -17,6 +17,7 @@ import {
   typography,
   width,
 } from "styled-system";
+import theme from "../../constant/theme";
 
 export const InputLayout = compose(
   color,
@@ -55,7 +56,7 @@ export const PrimaryInput: React.FC<InputTextProps> = ({
     autoFocus
     paddingTop={2}
     paddingBottom={2}
-    borderColor={"#000000"}
+    borderColor={theme.colors.black.main}
     borderWidth={1}
     borderRadius={5}
     textAlign={"center"}

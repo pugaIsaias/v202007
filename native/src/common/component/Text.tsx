@@ -17,6 +17,7 @@ import {
   typography,
   width,
 } from "styled-system";
+import theme from "../../constant/theme";
 
 export const TextLayout = compose(
   color,
@@ -51,7 +52,7 @@ export const PrimaryText: React.FC<TextProps> = ({ children, ...props }) => (
     {...props}
     paddingTop={0}
     paddingBottom={50}
-    color={"#28244C"}
+    color={theme.colors.primary.main}
     fontSize={50}
     fontWeight={700}
     textAlign={"center"}
@@ -60,8 +61,8 @@ export const PrimaryText: React.FC<TextProps> = ({ children, ...props }) => (
   </TextBase>
 );
 
-export const SecundaryText: React.FC<TextProps> = ({ children, ...props }) => (
-  <TextBase {...props} color={"#585884"} textAlign={"center"}>
+export const SecondaryText: React.FC<TextProps> = ({ children, ...props }) => (
+  <TextBase {...props} color={theme.colors.secondary.main} textAlign={"center"}>
     {children}
   </TextBase>
 );
