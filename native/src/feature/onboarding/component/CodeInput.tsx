@@ -9,8 +9,10 @@ import {
 import styles from "./styles";
 
 const CELL_COUNT = 6;
-
-const CodeInput = () => {
+type Props = {
+  onChangeText: (text: string) => void | undefined;
+};
+const CodeInput: React.FC<Props> = ({ onChangeText }) => {
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -18,8 +20,8 @@ const CodeInput = () => {
     setValue,
   });
 
-  const onSetVerificationCode = (code: string) => {
-    console.log(code);
+  const onSetVerifcationCode = (code: string) => {
+    onChangeText(code);
     setValue(code);
   };
 
@@ -28,7 +30,7 @@ const CodeInput = () => {
       ref={ref}
       {...props}
       value={value}
-      onChangeText={onSetVerificationCode}
+      onChangeText={onSetVerifcationCode}
       cellCount={CELL_COUNT}
       rootStyle={styles.codeFiledRoot}
       keyboardType="number-pad"

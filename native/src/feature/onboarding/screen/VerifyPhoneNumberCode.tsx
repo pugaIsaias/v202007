@@ -2,12 +2,26 @@ import { QueryVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Alert } from "react-native";
-import { VerifyPhoneNumberView } from "../../../common/component/screen/VerifyPhoneNumberView";
+import {
+  Alert,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { FooterView, View } from "../../../common/component";
+import {
+  FooterText,
+  PrimaryText,
+  SecondaryText,
+} from "../../../common/component/Text";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
+import CodeInput from "../component/CodeInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
+
+//const loginURL = "https://google.com";
 
 type Props = {
   navigation: StackNavigationProp<
@@ -83,7 +97,31 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
         Continuar
       </PrimaryButton>
     </View>*/
-    <VerifyPhoneNumberView />
+    <KeyboardAvoidingView
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View
+          container
+          flex={1}
+          justifyContent="space-around"
+          onPress={Keyboard.dismiss}
+        >
+          <PrimaryText>MariaApp</PrimaryText>
+          <SecondaryText paddingTop={30}>
+            Introduce el código que hemos enviado a tu{"\n"}
+            número +502 01020304
+          </SecondaryText>
+          <CodeInput onChangeText={onSetVerificationCode} />
+          <FooterView container>
+            <FooterText>
+              ¿Ya tienes cuenta? {/**<Link url={loginURL}>Incia Sesion</Link>*/}
+            </FooterText>
+          </FooterView>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
