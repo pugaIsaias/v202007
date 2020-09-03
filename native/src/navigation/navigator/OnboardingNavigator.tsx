@@ -1,20 +1,24 @@
-import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { OnboardingStackParamList } from "../types/OnboardingStackParamList";
+import * as React from "react";
 import {
   SendPhoneNumberVerificationCode,
   VerifyPhoneNumberCode,
 } from "../../feature/onboarding/screen";
+import { OnboardingStackScreenName } from "../model/OnboardingStackScreenName";
+import { OnboardingStackParamList } from "../types/OnboardingStackParamList";
 
 const { Navigator, Screen } = createStackNavigator<OnboardingStackParamList>();
 
 const OnboardingNavigator = () => (
   <Navigator>
     <Screen
-      name="SendPhoneNumberVerificationCode"
+      name={OnboardingStackScreenName.SendPhoneNumberVerificationCode}
       component={SendPhoneNumberVerificationCode}
     />
-    <Screen name="VerifyPhoneNumberCode" component={VerifyPhoneNumberCode} />
+    <Screen
+      name={OnboardingStackScreenName.VerifyPhoneNumberCode}
+      component={VerifyPhoneNumberCode}
+    />
   </Navigator>
 );
 
