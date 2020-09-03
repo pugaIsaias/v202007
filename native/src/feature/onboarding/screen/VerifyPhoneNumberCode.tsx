@@ -21,7 +21,7 @@ import { OnboardingStackParamList } from "../../../navigation/types/OnboardingSt
 import CodeInput from "../component/CodeInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
-//const loginURL = "https://google.com";
+const loginURL = "https://google.com";
 
 type Props = {
   navigation: StackNavigationProp<
@@ -43,7 +43,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
 
   const [args, setInput] = React.useState<QueryVerifyPhoneNumberCodeArgs>({
     input: {
-      phoneNumber: "", //route.params.phoneNumber,
+      phoneNumber: route.params.phoneNumber,
       code: "",
     },
   });

@@ -2,7 +2,12 @@ import { useCallback } from "react";
 import { Alert, Linking } from "react-native";
 import { SecondaryText } from "./Text";
 
-export const Link = ({ url, children }) => {
+type Props = {
+  url: string;
+  children: () => Promise<void>;
+};
+
+export const Link: React.FC<Props> = ({ url, children }) => {
   const handlePress = useCallback(async () => {
     const supported = await Linking.canOpenURL(url);
     if (supported) {
