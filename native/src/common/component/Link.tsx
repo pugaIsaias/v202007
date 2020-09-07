@@ -4,7 +4,6 @@ import { SecondaryText } from "./Text";
 
 type Props = {
   url: string;
-  children: () => Promise<void>;
 };
 
 export const Link: React.FC<Props> = ({ url, children }) => {
