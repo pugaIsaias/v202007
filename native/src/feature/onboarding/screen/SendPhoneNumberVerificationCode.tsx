@@ -1,12 +1,13 @@
 import { QuerySendPhoneNumberVerificationCodeArgs } from "@corecodeio/libraries/api";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Text, TextInput } from "react-native";
+import { Text } from "react-native";
 import { View } from "../../../common/component";
 import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
+import PhoneNumberInput from "../component/IntlTelInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -48,6 +49,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   const onSetPhoneNumber = (phoneNumber: string) => {
     setInput({ input: { phoneNumber } });
+    console.log(phoneNumber);
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
@@ -60,16 +62,15 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   return (
     <View container flex={1} justifyContent="center">
-      <TextInput
-        value={args.input.phoneNumber}
-        autoFocus
-        onChangeText={onSetPhoneNumber}
-        placeholder={"+502 1234 56 78"}
-      />
+      <PhoneNumberInput onSetPhoneNumber={onSetPhoneNumber} />
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
       )}
-      <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
+      <PrimaryButton
+        mb={4}
+        onPress={onSendPhoneNumberVerificationCode}
+        disabled={!args.input.phoneNumber}
+      >
         Continuar
       </PrimaryButton>
     </View>
