@@ -9,8 +9,15 @@ import {
   QueryVerifyPhoneNumberCode,
 } from "@corecodeio/libraries/api/onboarding";
 import React from "react";
+import { AuthToken } from "../../../util/auth/model/AuthToken";
 
 export class Onboarding {
+  private authToken: AuthToken;
+
+  constructor(authToken: AuthToken) {
+    this.authToken = authToken;
+  }
+
   useSendPhoneNumberVerificationCode(): {
     executeSendPhoneNumberVerificationCode: (
       input: QuerySendPhoneNumberVerificationCodeArgs
@@ -56,6 +63,10 @@ export class Onboarding {
       Query["verifyPhoneNumberCode"],
       QueryVerifyPhoneNumberCodeArgs
     >(QueryVerifyPhoneNumberCode);
+
+    if (Boolean(queryResult?.data?.token)) {
+      this.authToken.set(queryResult.data.token);
+    }
 
     return {
       executeVerifyPhoneNumberCode: async ({ input }) => {
