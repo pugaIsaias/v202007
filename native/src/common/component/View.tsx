@@ -62,7 +62,7 @@ export const View: React.FC<ViewProps & { container?: boolean }> = ({
   );
 };
 
-export const SecundaryView: React.FC<ViewProps & { container?: boolean }> = ({
+export const SecondaryView: React.FC<ViewProps & { container?: boolean }> = ({
   children,
   container,
   ...props
