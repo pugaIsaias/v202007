@@ -1,8 +1,10 @@
 import { LazyQueryResult, useLazyQuery } from "@apollo/client";
 import {
+  Mutation,
+  MutationVerifyPhoneNumberCodeArgs,
+  OnboardingSession,
   Query,
   QuerySendPhoneNumberVerificationCodeArgs,
-  QueryVerifyPhoneNumberCodeArgs,
 } from "@corecodeio/libraries/api";
 import {
   QuerySendPhoneNumberVerificationCode,
@@ -48,24 +50,24 @@ export class Onboarding {
 
   useVerifyPhoneNumberCode(): {
     executeVerifyPhoneNumberCode: (
-      input: QueryVerifyPhoneNumberCodeArgs
+      input: MutationVerifyPhoneNumberCodeArgs
     ) => void;
-    result: Query["verifyPhoneNumberCode"] | undefined;
+    result: Mutation["verifyPhoneNumberCode"] | undefined;
     error: Error | null;
     queryResult: LazyQueryResult<
-      Query["verifyPhoneNumberCode"],
-      QueryVerifyPhoneNumberCodeArgs
+      Mutation["verifyPhoneNumberCode"],
+      MutationVerifyPhoneNumberCodeArgs
     >;
   } {
     const [error, setError] = React.useState<Error | null>(null);
 
     const [execute, queryResult] = useLazyQuery<
-      Query["verifyPhoneNumberCode"],
-      QueryVerifyPhoneNumberCodeArgs
+      Mutation["verifyPhoneNumberCode"],
+      MutationVerifyPhoneNumberCodeArgs
     >(QueryVerifyPhoneNumberCode);
 
     if (Boolean(queryResult?.data?.token)) {
-      this.authToken.set(queryResult.data.token);
+      this.authToken.set((queryResult.data as OnboardingSession).token);
     }
 
     return {
