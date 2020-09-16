@@ -9,9 +9,11 @@ import {
 import styles from "./styles";
 
 const CELL_COUNT = 6;
+
 type Props = {
   onChangeText: (text: string) => void | undefined;
 };
+
 const CodeInput: React.FC<Props> = ({ onChangeText }) => {
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
