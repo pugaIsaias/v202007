@@ -15,6 +15,7 @@ export const Link: React.FC<Props> = ({ url, children }) => {
       Alert.alert(`Don't know how to open this URL: ${url}`);
     }
   }, [url]);
+
   return (
     <SecondaryText paddingTop={10} fontWeight={"bold"} onPress={handlePress}>
       {children}
