@@ -4,7 +4,7 @@ import "react-phone-number-input/style.css";
 
 type Props = { onSetPhoneNumber: (text: string) => void };
 
-const PhoneNumberInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
+const IntlTelInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const onChangePhoneNumber = (number: string) => {
     setPhoneNumber(number);
@@ -24,4 +24,4 @@ const PhoneNumberInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
   );
 };
 
-export default PhoneNumberInput;
+export default IntlTelInput;
