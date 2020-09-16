@@ -1,4 +1,4 @@
-import { QueryVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
+import { MutationVerifyPhoneNumberCodeArgs } from "@corecodeio/libraries/api";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
@@ -21,8 +21,6 @@ import { OnboardingStackParamList } from "../../../navigation/types/OnboardingSt
 import CodeInput from "../component/CodeInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
-const loginURL = "https://google.com";
-
 type Props = {
   navigation: StackNavigationProp<
     OnboardingStackParamList,
@@ -41,7 +39,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
-  const [args, setInput] = React.useState<QueryVerifyPhoneNumberCodeArgs>({
+  const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>({
     input: {
       phoneNumber: route.params.phoneNumber,
       code: "",
@@ -58,8 +56,6 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
     if (!Boolean(result)) {
       return;
     }
-
-    // navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
   }, [result]);
 
   React.useEffect(() => {
@@ -85,18 +81,6 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   };
 
   return (
-    /*<View container flex={1} justifyContent="center">
-      <TextInput
-        value={args.input.code}
-        autoFocus
-        onChangeText={onSetVerificationCode}
-        placeholder={"CheckCode"}
-      />
-      {error && <Text>Error PIN equivocado. Intenta de nuevo.</Text>}
-      <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
-        Continuar
-      </PrimaryButton>
-    </View>*/
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
@@ -115,9 +99,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
           </SecondaryText>
           <CodeInput onChangeText={onSetVerificationCode} />
           <FooterView container>
-            <FooterText>
-              ¿Ya tienes cuenta? {/**<Link url={loginURL}>Incia Sesion</Link>*/}
-            </FooterText>
+            <FooterText>¿Ya tienes cuenta?</FooterText>
           </FooterView>
         </View>
       </TouchableWithoutFeedback>

@@ -7,7 +7,7 @@ import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
-import PhoneNumberInput from "../component/IntlTelInput";
+import IntlTelInput from "../component/IntlTelInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -49,7 +49,6 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   const onSetPhoneNumber = (phoneNumber: string) => {
     setInput({ input: { phoneNumber } });
-    console.log(phoneNumber);
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
@@ -62,7 +61,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   return (
     <View container flex={1} justifyContent="center">
-      <PhoneNumberInput onSetPhoneNumber={onSetPhoneNumber} />
+      <IntlTelInput onSetPhoneNumber={onSetPhoneNumber} />
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
       )}

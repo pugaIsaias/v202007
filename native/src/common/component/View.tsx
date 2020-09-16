@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, TouchableOpacityProps } from "react-native";
+import { TouchableOpacityProps } from "react-native";
 import styled from "styled-components/native";
 import {
   AlignItemsProps,
@@ -44,9 +44,6 @@ type ViewProps =
 const ViewBase = styled.View<ViewProps>`
   ${ViewLayout}
 `;
-
-const width_windows = Dimensions.get("window").width;
-const height_windows = Dimensions.get("window").height;
 
 ViewBase.defaultProps = {};
 
