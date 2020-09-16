@@ -29,8 +29,8 @@ const CodeInput: React.FC<Props> = ({ onChangeText }) => {
 
   return (
     <CodeField
-      ref={ref}
       {...props}
+      ref={ref}
       value={value}
       onChangeText={onSetVerifcationCode}
       cellCount={CELL_COUNT}
