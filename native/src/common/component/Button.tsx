@@ -6,6 +6,8 @@ import {
   BackgroundColorProps,
   border,
   BorderProps,
+  boxShadow,
+  BoxShadowProps,
   color,
   ColorStyleProps,
   compose,
@@ -17,6 +19,7 @@ import {
   typography,
   width,
 } from "styled-system";
+import theme from "../../constant/theme";
 
 export const ButtonLayout = compose(
   color,
@@ -26,7 +29,8 @@ export const ButtonLayout = compose(
   height,
   border,
   flexbox,
-  typography
+  typography,
+  boxShadow
 );
 
 type ButtonProps =
@@ -35,7 +39,8 @@ type ButtonProps =
   | BackgroundColorProps
   | SpaceProps
   | BorderProps
-  | AlignItemsProps;
+  | AlignItemsProps
+  | BoxShadowProps;
 
 const ButtonBase = styled.TouchableOpacity<ButtonProps>`
   ${ButtonLayout}
@@ -50,7 +55,14 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => (
-  <ButtonBase {...props} bg="red" borderRadius={2} alignItems="center">
+  <ButtonBase
+    {...props}
+    borderRadius={30}
+    alignItems="center"
+    marginTop={30}
+    bg={theme.button.body.able}
+    boxShadow={"5px 5px 5px " + theme.button.shadow}
+  >
     <Text>{children}</Text>
   </ButtonBase>
 );

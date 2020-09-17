@@ -67,8 +67,14 @@ export const SecondaryText: React.FC<TextProps> = ({ children, ...props }) => (
   </TextBase>
 );
 
+export const TertiaryText: React.FC<TextProps> = ({ children, ...props }) => (
+  <TextBase {...props} color={theme.colors.tertiary.main} textAlign={"center"}>
+    {children}
+  </TextBase>
+);
+
 export const FooterText: React.FC<TextProps> = ({ children, ...props }) => (
-  <TextBase {...props} textAlign={"center"}>
+  <TextBase {...props} color={theme.colors.tertiary.main} textAlign={"center"}>
     {children}
   </TextBase>
 );

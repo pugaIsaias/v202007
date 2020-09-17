@@ -2,7 +2,14 @@ import { QuerySendPhoneNumberVerificationCodeArgs } from "@corecodeio/libraries/
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Text } from "react-native";
-import { View } from "../../../common/component";
+import {
+  FooterText,
+  FooterView,
+  PrimaryText,
+  SecondaryText,
+  TertiaryText,
+  View,
+} from "../../../common/component";
 import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
@@ -61,6 +68,10 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   return (
     <View container flex={1} justifyContent="center">
+      <PrimaryText>MariaApp</PrimaryText>
+      <SecondaryText paddingTop={30}>
+        Selecciona tu código de país e ingresa tu numero de teléfono
+      </SecondaryText>
       <IntlTelInput onSetPhoneNumber={onSetPhoneNumber} />
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
@@ -72,6 +83,12 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
       >
         Continuar
       </PrimaryButton>
+      <TertiaryText>
+        Al crear tu cuenta aceptas los Términos y Condiciones
+      </TertiaryText>
+      <FooterView container>
+        <FooterText>¿Ya tienes cuenta?</FooterText>
+      </FooterView>
     </View>
   );
 };
