@@ -14,6 +14,7 @@ import {
   height,
   space,
   SpaceProps,
+  TextAlignProps,
   typography,
   width,
 } from "styled-system";
@@ -36,6 +37,7 @@ type InputTextProps =
   | BackgroundColorProps
   | SpaceProps
   | BorderProps
+  | TextAlignProps
   | AlignItemsProps;
 
 const InputBase = styled.TextInput<InputTextProps>`

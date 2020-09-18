@@ -7,13 +7,16 @@ import {
   border,
   BorderProps,
   color,
-  ColorStyleProps,
   compose,
   display,
   flexbox,
+  FontSizeProps,
+  FontWeightProps,
   height,
   space,
   SpaceProps,
+  TextAlignProps,
+  TextColorProps,
   typography,
   width,
 } from "styled-system";
@@ -32,11 +35,14 @@ export const TextLayout = compose(
 
 type TextProps =
   | TouchableOpacityProps
-  | ColorStyleProps
   | BackgroundColorProps
   | SpaceProps
   | BorderProps
-  | AlignItemsProps;
+  | AlignItemsProps
+  | TextAlignProps
+  | TextColorProps
+  | FontSizeProps
+  | FontWeightProps;
 
 const TextBase = styled.Text<TextProps>`
   ${TextLayout}
